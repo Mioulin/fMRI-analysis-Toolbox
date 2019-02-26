@@ -18,8 +18,8 @@ function params = fmri_preproc_setParams()
   %% Directories
   params.dir.spmDir = '/home/timo/Documents/MATLAB/Toolboxes/spm12/';
 
-  params.dir.imDir        = '/home/timo/Documents/Work/Projects/DPHIL_01_EXP_CL_TREES_FMRI/exp_3_granada_fmri/data/data_fmri/final/';
-  params.dir.conditionDir = '/home/timo/Documents/Work/Projects/DPHIL_01_EXP_CL_TREES_FMRI/exp_3_granada_fmri/data/data_behav/final/fmri_identifiers/scan/conditions/';
+  params.dir.imDir        = '/home/timo/Documents/Work/Projects/BLA/data/data_fmri/final/';
+  params.dir.conditionDir = '/home/timo/Documents/Work/Projects/BLA/data/data_behav/final/fmri_identifiers/scan/conditions/';
   params.dir.runSubDir    =        'run_';
   params.dir.epiSubDir    = 'functional/';
   params.dir.structSubDir = 'structural/';
