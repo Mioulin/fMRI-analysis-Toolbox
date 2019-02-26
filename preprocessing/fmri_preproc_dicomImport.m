@@ -22,7 +22,7 @@ function fmri_preproc_dicomImport()
     allEPIfiles = [];
     % collect all EPIs (of all sessions)
     for runID = 1:params.num.runs
-        funcDir = [params.dir.imDir subjectDirName '/' params.dir.epiSubDir  params.dir.runSubDir num2str(runID) '/']; 
+        funcDir = [params.dir.imDir subjectDirName '/' params.dir.epiSubDir  params.dir.runSubDir num2str(runID) '/'];
         fileNames   = spm_select('List', funcDir, '*.dcm$');
         runFiles = cellstr([repmat(funcDir,size(fileNames,1),1) fileNames]);
         allEPIfiles = [allEPIfiles; runFiles];  % add files of all sessions
@@ -39,6 +39,9 @@ function fmri_preproc_dicomImport()
 
     % add images
     matlabbatch{1}.spm.util.import.dicom.data = {[funcDir allEPIfiles];[structDir structFile]};
+
+    % output directory
+    params.import.dicom.outdir = [ params.dir.imDir subjectDirName];
 
     % save and run job
     save('batchFile_dicom2nifti.mat','matlabbatch');
