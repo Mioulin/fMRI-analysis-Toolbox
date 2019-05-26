@@ -11,7 +11,7 @@ function fmri_preproc_segmentation()
 
   disp(['Tissue segmentation of structural']);
   for subID = 1:params.num.subjects
-    subjectDirName = set_fileName(subID);
+    subjectDirName = fmri_helper_set_fileName(subID);
     disp(['... job specification for subject : ', num2str(subID)]);
 
     % cd so that .mat and .nii files are written in structural dir

@@ -16,14 +16,14 @@ function params = fmri_preproc_setParams()
   params.flags.doSegment  = false;
 
   %% Directories
-  params.dir.spmDir = '/home/timo/Documents/MATLAB/Toolboxes/spm12/';
+  params.dir.spmDir = '';
 
-  params.dir.imDir        = '/home/timo/Documents/Work/Projects/BLA/data/data_fmri/final/';
-  params.dir.conditionDir = '/home/timo/Documents/Work/Projects/BLA/data/data_behav/final/fmri_identifiers/scan/conditions/';
-  params.dir.runSubDir    =        'run_';
-  params.dir.epiSubDir    = 'functional/';
-  params.dir.structSubDir = 'structural/';
-  params.dir.estSubDir    =  'estimates/';
+  params.dir.imDir        = '';
+  params.dir.conditionDir = '';
+  params.dir.runSubDir    = '';
+  params.dir.epiSubDir    = '';
+  params.dir.structSubDir = '';
+  params.dir.estSubDir    = '';
 
   %% File Names
   % regular expressions for filenames
@@ -46,7 +46,7 @@ function params = fmri_preproc_setParams()
 
   %% STEP0 : DICOM import
   params.import.dicom.root             = 'series'; % dunno
-  params.import.dicom.outdir = [ params.dir.imDir 'TIMO001']; %NOTE obv. need to make this subject specific
+  params.import.dicom.outdir = [ params.dir.imDir 'SUB001']; %NOTE obv. need to make this subject specific
   params.import.dicom.protfilter       =     '.*'; % protocol name filter
   params.import.dicom.convopts.format  =    'nii'; % output format (single nii vs nii + hdr)
   params.import.dicom.convopts.meta    =        0; % export metadata

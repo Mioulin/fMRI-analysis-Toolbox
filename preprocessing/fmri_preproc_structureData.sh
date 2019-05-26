@@ -24,7 +24,7 @@ inDir="`pwd`/raw"
 outDir="`pwd`/renamed"
 
 # do the magic.. for all subjects:
-for ii in `ls  $inDir | grep -v TIMO014`;do
+for ii in `ls  $inDir | grep -v SUB014`;do
    # remove unneccessary subfolder (Mruz_Jan)
    mv $inDir/$ii/Mruz_Jan/* "$inDir/$ii/"
    rmdir $inDir/$ii/Mruz_Jan/
@@ -59,7 +59,7 @@ inDir="`pwd`/raw"
 outDir="`pwd`/renamed"
 
 # do the magic.. for all subjects:
-for ii in `ls  $inDir | grep TIMO014`;do
+for ii in `ls  $inDir | grep SUB014`;do
    # remove unneccessary subfolder (Mruz_Jan)
    mv $inDir/$ii/Mruz_Jan/* "$inDir/$ii/"
    rmdir $inDir/$ii/Mruz_Jan/

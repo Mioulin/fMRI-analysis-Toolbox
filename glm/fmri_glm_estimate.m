@@ -16,7 +16,7 @@ function fmri_glm_estimate()
 
 
   for subID = 1:params.num.subjects
-    subjectDirName = set_fileName(subID);
+    subjectDirName = fmri_helper_set_fileName(subID);
     outDir_spec = [params.dir.glmDir subjectDirName '/' params.dir.dmatSubDir];
     outDir_est  = [params.dir.glmDir subjectDirName '/' params.dir.estSubDir];
 

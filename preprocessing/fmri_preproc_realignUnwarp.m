@@ -11,7 +11,7 @@ function fmri_preproc_realignUnwarp()
 
   disp(['Realignment and Unwarping of functional EPIs']);
   for subID = 1:params.num.subjects
-    subjectDirName = set_fileName(subID);
+    subjectDirName = fmri_helper_set_fileName(subID);
 
     disp(['... job specification for subject : ', num2str(subID)]);
 

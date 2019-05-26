@@ -13,7 +13,7 @@ function fmri_glm_contrast_2ndLevel_LOSO()
   % parameters and file names
   params =                fmri_glm_setParams();
   c      =                fmri_glm_contrast_generate();
-  cNames = helper_genConImgNames(length(c.T.labels));
+  cNames = fmri_helper_genConImgNames(length(c.T.labels));
 
   % directories
   outDir_group = [params.dir.glmDir params.dir.losoSubDir];
@@ -58,7 +58,7 @@ function fmri_glm_contrast_2ndLevel_LOSO()
       % iterate through all n-1 subjects
       iiSub = 1;
       for subIDX = subVect
-        subjectDirName = set_fileName(subIDX);
+        subjectDirName = fmri_helper_set_fileName(subIDX);
         outDir_con  = [params.dir.glmDir subjectDirName '/' params.dir.tSubDir];
         % move to directory that contains all contrast images
         cd(outDir_con);

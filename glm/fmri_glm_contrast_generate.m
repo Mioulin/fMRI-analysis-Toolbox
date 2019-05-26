@@ -18,7 +18,7 @@ function contrasts = fmri_glm_contrast_generate()
   % give the contrasts sensible names
   contrasts.T.labels = {'Left > Right', 'Right > Left'};
     % define the contrast vectors ( [repmat([CONDITIONS, MOTIONREGS],1,numRuns), RUNIDS] )
-  contrasts.T.vectors(1,:) = helper_genContrastVector(2,1,2,params);
-  contrasts.T.vectors(2,:) = helper_genContrastVector(2,2,1,params);
+  contrasts.T.vectors(1,:) = fmri_helper_genContrastVector(2,1,2,params);
+  contrasts.T.vectors(2,:) = fmri_helper_genContrastVector(2,2,1,params);
 
 end

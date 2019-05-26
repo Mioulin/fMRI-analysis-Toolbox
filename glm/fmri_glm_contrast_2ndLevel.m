@@ -9,7 +9,7 @@ function fmri_glm_contrast_2ndLevel()
   % parameters and file names
   params =                fmri_glm_setParams();
   c      =                fmri_glm_contrast_generate();
-  cNames = helper_genConImgNames(length(c.T.labels));
+  cNames = fmri_helper_genConImgNames(length(c.T.labels));
 
   % directories
   outDir_group = [params.dir.glmDir params.dir.groupSubDir];
@@ -34,7 +34,7 @@ function fmri_glm_contrast_2ndLevel()
 
     matlabbatch = {};
     for subIDX = 1:params.num.subjects
-      subjectDirName = set_fileName(subIDX);
+      subjectDirName = fmri_helper_set_fileName(subIDX);
       outDir_con  = [params.dir.glmDir subjectDirName '/' params.dir.tSubDir];
       % move to directory that contains all contrast images
       cd(outDir_con);

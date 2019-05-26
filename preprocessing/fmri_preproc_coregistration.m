@@ -11,7 +11,7 @@ function fmri_preproc_coregistration()
 
   disp(['Coregistration of structural with mean functional of first run']);
   for subID = 1:params.num.subjects
-    subjectDirName = set_fileName(subID);
+    subjectDirName = fmri_helper_set_fileName(subID);
 
     disp(['... job specification for subject : ', num2str(subID)]);
 

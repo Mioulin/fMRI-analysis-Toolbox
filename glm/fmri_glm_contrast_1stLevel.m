@@ -10,7 +10,7 @@ function fmri_glm_contrast_1stLevel()
 
 
   for subIDX = 1:params.num.subjects
-    subjectDirName = set_fileName(subIDX);
+    subjectDirName = fmri_helper_set_fileName(subIDX);
     outDir_spec = [params.dir.glmDir subjectDirName '/' params.dir.dmatSubDir];
     outDir_est  = [params.dir.glmDir subjectDirName '/' params.dir.estSubDir];
     outDir_con  = [params.dir.glmDir subjectDirName '/' params.dir.tSubDir];
@@ -36,7 +36,7 @@ function fmri_glm_contrast_1stLevel()
 
     % if desired, review contrasts
     if params.monitor.reviewContrasts
-      helper_dispContrastVectors(c,params);
+      fmri_helper_dispContrastVectors(c,params);
     end
     disp(['Now computing contrasts for subject ' num2str(subIDX)]);
     spm_jobman('run','batchFile_con.mat');

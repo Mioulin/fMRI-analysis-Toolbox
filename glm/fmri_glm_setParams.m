@@ -12,16 +12,16 @@ function params = fmri_glm_setParams()
 
   params.glmName =  'GLM_Buttons';
   % directories
-  params.dir.imDir        = '/home/timo/Documents/Work/Projects/BLA/data/data_fmri/final/';
-  params.dir.conditionDir = '/home/timo/Documents/Work/Projects/BLA/data/data_behav/final/fmri_identifiers/scan/conditions/';
+  params.dir.imDir        = '';
+  params.dir.conditionDir = '';
   params.dir.glmSubDir    = [params.glmName '/'];
-  params.dir.glmDir       = ['/home/timo/Documents/Work/Projects/BLA/results/' params.dir.glmSubDir];
-  params.dir.epiSubDir    = 'functional/run_';
-  params.dir.dmatSubDir   = 'dmats/';
-  params.dir.estSubDir    = 'estimates/';
-  params.dir.tSubDir      = 'dmats/';%'tContrasts/';
-  params.dir.groupSubDir  = 'groupLevel/';
-  params.dir.losoSubDir   = 'losoROI/';
+  params.dir.glmDir       = ['' params.dir.glmSubDir];
+  params.dir.epiSubDir    = '';
+  params.dir.dmatSubDir   = '';
+  params.dir.estSubDir    = '';
+  params.dir.tSubDir      = '';
+  params.dir.groupSubDir  = '';
+  params.dir.losoSubDir   = '';
 
   % file handling
   params.files.overwriteContrasts = 1; % delete already estimated contrasts;
