@@ -75,7 +75,7 @@ function r = compareRDMs(rdm1,rdm2,method)
     case 'kendall'
       r = rankCorr_Kendall_taua(v1,v2);
     case 'spearman'
-      r = corr(v1',v2','type','Spearman');
+      r = corr(v1',v2','type','Spearman','rows','complete');
     case 'regression'
       r = regress(v1',v2');
   end
