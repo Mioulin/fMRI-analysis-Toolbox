@@ -85,7 +85,7 @@ function r = compareDissims(dv1,dv2,method)
     case 'spearman'
       v1 = dv1(:);
       v2 = dv2(:);
-      r = corr(v1,v2,'type','Spearman');
+      r = corr(v1,v2,'type','Spearman','rows','complete');
     case 'regression'
       v1 = zscore(dv1(:));
       v2 = zscore(dv2(:));
