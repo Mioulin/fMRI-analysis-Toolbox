@@ -74,7 +74,7 @@ function r = compareRDMs(rdm1,rdm2,method)
     case 'spearman'
       v1 = vectorizeRDM(rdm1);
       v2 = vectorizeRDM(rdm2);
-      r = corr(v1',v2','type','Spearman');
+      r = corr(v1',v2','type','Spearman','rows','complete');
     case 'regression'
       v1 = zscore(vectorizeRDM(rdm1));
       v2 = zscore(vectorizeRDM(rdm2));
