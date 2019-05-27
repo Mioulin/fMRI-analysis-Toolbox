@@ -28,7 +28,7 @@ function fmri_rsa_corrs_corrBrainRDMs_Searchlight(modelRDMs)
       for mID = 1:length(modelRDMs)
         rdms(mID,:,:) = squeeze(modelRDMs(mID).rdms(subID,:,:));
       end
-      rdms_orth = orthogonalize_modelRDMs(rdms);
+      rdms_orth = fmri_helper_orthogonaliseModelRDMs(rdms);
       for mID = 1:length(modelRDMs)
         modelRDMs(mID).rdms(subID,:,:) = squeeze(rdms_orth(mID,:,:));
       end
