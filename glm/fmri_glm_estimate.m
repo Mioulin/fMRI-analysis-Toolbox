@@ -1,4 +1,6 @@
 function fmri_glm_estimate()
+  %% fmri_glm_estimate()
+  %
   % performs voxel-wise (whole brain) univariate glm estimation of pre-defined conditions
   % dmat contains conditions (convolved with hrf) and run-specific motion-parameters as nuisance regressors
   % a separate set of parameters is estimated for each run

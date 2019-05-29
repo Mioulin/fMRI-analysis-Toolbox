@@ -1,4 +1,6 @@
 function fmri_glm_contrast_2ndLevel()
+  %% fmri_glm_contrast_2ndLevel()
+  %
   % computes voxel-wise t-tests at group level.
   %
   % Timo Flesch, 2018,

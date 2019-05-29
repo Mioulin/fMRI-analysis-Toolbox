@@ -1,5 +1,5 @@
-function volMat = fmri_volume_genVolume(dim,coords,intensities)
-  %% fmri_volume_genVolume()
+function volMat = fmri_helper_genVolume(dim,coords,intensities)
+  %% fmri_helper_genVolume()
   %
   % given a set of coordinates and intensities,
   % this function generates a volume

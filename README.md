@@ -9,9 +9,12 @@ Various tools to perform analyses of fMRI data.
 
 
 ## Preprocessing
- fMRI preprocessing routines. allows you to avoid the SPM GUI entirely
+ fMRI preprocessing routines. allows you to avoid the SPM GUI entirely.
+ Parameters are defined in `fmri_preproc_setParams()`.  
+ To run all steps defined in the params file in one go, call `fmri_preproc_runner()`  
 
-```
+**Table of Contents:**
+```bash
 .
 ├── fmri_preproc_coregistration.m
 ├── fmri_preproc_dicomImport.m
@@ -27,8 +30,21 @@ Various tools to perform analyses of fMRI data.
 
 ```
 ## GLM
- Generalised Linear Model estimation, interfaces SPM and operates mostly on nifti (or whichever format you prefer) images.
-```
+ Generalised Linear Model estimation, interfaces SPM and operates mostly on nifti (or whichever format you prefer) images.  
+
+ **Features:**
+ - define conditions, number of nuisance regressors and runs, automatically generate design for whole session.
+ - estimate the model
+ - perform 1st level contrasts (of as many contrast as you wish, in one go)
+ - perform 2nd level inference, generates group-level T-Map.
+ - do above in leave-one-subject-out manner, for functional ROIs  
+ 
+
+ Again, all parameters adjusted set in one file, `fmri_glm_setParams()`
+
+
+**Table of Contents**
+```bash
 .
 ├── fmri_glm_contrast_1stLevel.m
 ├── fmri_glm_contrast_2ndLevel_LOSO.m
@@ -43,7 +59,8 @@ Various tools to perform analyses of fMRI data.
 
 ## RSA
 Representational Similarity Analysis. Mostly custom code which operates directly on matlab matrices.
-```
+
+```bash
 .
 ├── compute
 │   ├── fmri_rsa_compute_performRSA_ROI.m
@@ -103,7 +120,7 @@ Representational Similarity Analysis. Mostly custom code which operates directly
 ## IO  
 helper functions to convert image files to MATLAB matrices and vice versa
 
-```
+```bash
 .
 ├── fmri_io_mat2nifti.m
 ├── fmri_io_nifti2mat.m
@@ -115,7 +132,7 @@ helper functions to convert image files to MATLAB matrices and vice versa
 ## Mask
 generate and apply masks
 
-```
+```bash
 .
 ├── fmri_mask_genGroupMask.m
 ├── fmri_mask_genSphericalMask.m
@@ -126,24 +143,17 @@ generate and apply masks
 
 ```
 
-## Volume
-generate volumes (3D images)
-
-```
-.
-└── fmri_volume_genVolume.m
-
-```
 
 ## Helper
 various auxiliary functions
 
-```
+```bash
 .
 ├── fmri_helper_changeSPMpaths.m
 ├── fmri_helper_dispContrastVectors.m
 ├── fmri_helper_genConImgNames.m
 ├── fmri_helper_genContrastVector.m
+|── fmri_helper_genVolume.m
 ├── fmri_helper_genWeightedContrastVector.m
 ├── fmri_helper_set_fileName.m
 └── plot_progbar_cli.m

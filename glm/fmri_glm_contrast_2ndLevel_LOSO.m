@@ -1,4 +1,5 @@
 function fmri_glm_contrast_2ndLevel_LOSO()
+%% fmri_glm_contrast_2ndLevel_LOSO()
 % computes voxel-wise t-tests at group level
 % in a leave one subject out approach.
 % generates one subfolder per subject for each contrast.

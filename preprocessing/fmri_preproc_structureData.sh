@@ -3,8 +3,10 @@
 # tidies up fMRI data
 # from granada testing sessions
 #
-# Timo Flesch
-
+# Timo Flesch, 2018,
+# Human Information Processing Lab, 
+# Experimental Psychology Department 
+# University of Oxford
 # ---------------------------------------
 # Subjects 1-13
 # set parameters
