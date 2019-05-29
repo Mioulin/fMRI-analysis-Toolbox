@@ -1,5 +1,5 @@
 function wrapper_rsa_makeCorrFigure_MultipleROIs()
-  %%
+  %% wrapper_rsa_makeCorrFigure_MultipleROIs()
   %
   % computes ROI-based RDMs
   % using my own pipeline, and tdt for comparison

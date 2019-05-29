@@ -1,5 +1,5 @@
 function [b,events] = fmri_rsa_helper_getBetas(SPM,nRuns,nConds,nMotRegs,maskIndices)
-  %% [b,events] = fmri_rsa_helper_getBetas(SPM)
+  %% [b,events] = fmri_rsa_helper_getBetas(SPM,nRuns,nConds,nMotRegs,maskIndices)
   %
   % imports betas from nifti files of single subject
   % returns them together with event IDs (from glm)

@@ -1,5 +1,5 @@
-function groupRDM = fmri_rsa_convert_mni2rdm(coords,sphereSize)
-  %% fmri_rsa_convert_mni2rdm()
+function groupRDM = fmri_rsa_convert_mni2rdm(coords,sphereSize,maskImg)
+  %% fmri_rsa_convert_mni2rdm(coords,sphereSize,maskImg)
   %
   % given a set of MNI coordinates,
   % this function extracts corresponding single-subject RDMs
@@ -17,8 +17,9 @@ function groupRDM = fmri_rsa_convert_mni2rdm(coords,sphereSize)
   end
 
   % load mask
-  maskImg = spm_vol(['/media/timo/timodrive/dphil/trees/results/masks/groupMask_rsaSearchlight.nii']);
-
+  if ~exist('maskImg','var')
+    maskImg = spm_vol(['/TODOPATH/groupMask.nii']);
+  end
   % get linear indices
   indices = fmri_mask_mni2roi(coords,sphereSize,maskImg);
 

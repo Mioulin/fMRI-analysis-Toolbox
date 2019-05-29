@@ -10,7 +10,7 @@ function fmri_rsa_corrs_genCorrImagesAndMaskedCorrs()
 
   params = fmri_rsa_corrs_setParams();
   % load grouplevel mask
-  gmaskMat  = fmri_io_nifti2mat('groupMask_rsaSearchlight.nii',params.dir.maskDir);
+  gmaskMat  = fmri_io_nifti2mat('groupMask.nii',params.dir.maskDir);
   gmaskVect = gmaskMat(:);
 
   allTaus = [];

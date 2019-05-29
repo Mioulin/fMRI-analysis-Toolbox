@@ -1,9 +1,13 @@
 function fmri_rsa_disp_showCorrs_MultipleROIs(fIDX,roiList,distMetric,doOrth)
-%% fmri_rsa_disp_rdmReplicability(scores)
+%% fmri_rsa_disp_showCorrs_MultipleROIs(fIDX,roiList,distMetric,doOrth)
 %
-% calculates leave one subject out rdm correlations (spearman)
+% displays model correlations for set of ROIs 
 %
-% Timo Flesch, 2019
+% Timo Flesch, 2019,
+% Human Information Processing Lab,
+% Experimental Psychology Department
+% University of Oxford
+
 params = fmri_rsa_corrs_setParams();
 
 if ~exist('fIDX','var')

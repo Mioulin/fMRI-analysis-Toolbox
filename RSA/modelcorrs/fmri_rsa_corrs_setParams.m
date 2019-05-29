@@ -1,5 +1,5 @@
 function params = fmri_rsa_corrs_setParams()
-  %% RSA_CORRS_SETPARAMS()
+  %% params = fmri_rsa_corrs_setParams()
   %
   % sets parameters for correlation between estimated brain and model RDMs
   %
@@ -38,7 +38,7 @@ function params = fmri_rsa_corrs_setParams()
 
   %% model correlations
   params.corrs.modelset  = str2num(params.names.modelset);
-  params.corrs.modellist = [1,2,3,8]; % list of models to include
+  params.corrs.modellist = [1,2,3,8]; % list of models to include (modelRDMs is a n-D struct)
   params.corrs.doOrth    =  0; % apply Gram-Schmidt orthogonalisation (y/n)
   params.corrs.method    = 'spearman'; % kendall, regression (instead of correlations), spearmann
 

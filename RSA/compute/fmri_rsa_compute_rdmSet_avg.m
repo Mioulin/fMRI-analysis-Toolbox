@@ -1,5 +1,5 @@
 function rdmSet = fmri_rsa_compute_rdmSet_avg(betas,metric)
-  %% fmri_rsa_compute_rdmSet()
+  %% fmri_rsa_compute_rdmSet(betas,metric)
   %
   % computes rdms at single subject level,
   %

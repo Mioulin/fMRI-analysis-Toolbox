@@ -1,5 +1,5 @@
 function betas = fmri_rsa_helper_whiten(betas,resids)
-  %% fmri_rsa_helper_whiten
+  %% betas = fmri_rsa_helper_whiten(betas,resids)
   %
   % whitens betas (multiplies with sqrt of inverse of residual cov mat)
   %

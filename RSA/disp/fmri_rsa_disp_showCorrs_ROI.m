@@ -1,5 +1,5 @@
 function fmri_rsa_disp_showCorrs_ROI(corrs,stats,colBar,colDots,labels,noiseCeiling,fIDX)
-%% fmri_rsa_disp_showCorrs(rdm,images)
+%% fmri_rsa_disp_showCorrs_ROI(corrs,stats,colBar,colDots,labels,noiseCeiling,fIDX)
 %
 % displays model correlations within ROI
 %

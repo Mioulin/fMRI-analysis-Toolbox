@@ -1,5 +1,5 @@
 function r = fmri_rsa_helper_getResiduals(SPM,maskIndices,checkResults)
-  %% r = fmri_rsa_helper_getResiduals(SPM)
+  %% r = fmri_rsa_helper_getResiduals(SPM,maskIndices,checkResults)
   %
   % computes residuals from nifti files of single subject
   % returns them as matlab struct with linear indices

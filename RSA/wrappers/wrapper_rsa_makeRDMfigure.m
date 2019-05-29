@@ -1,5 +1,5 @@
 function wrapper_rsa_makeRDMfigure()
-  %%
+  %% wrapper_rsa_makeRDMfigure()
   %
   % generates figure of group level RDMs
   % saves images in various formats

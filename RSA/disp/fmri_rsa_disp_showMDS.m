@@ -1,7 +1,7 @@
-function fmri_rsa_disp_showMDS(xy,fIDX,whichTask,images)
+function fmri_rsa_disp_showMDS(xy,fIDX,images)
   %% fmri_rsa_disp_showMDS(xy,fIDX,images)
   %
-  % displays tsne results
+  % displays MDS results
   % based on script by Andrej Karpathy (stanford cnn course)
   %
   % Timo Flesch, 2018,
@@ -10,22 +10,13 @@ function fmri_rsa_disp_showMDS(xy,fIDX,whichTask,images)
   % University of Oxford
 
   if ~exist('images','var')
-    images = load('treeThumbnails.mat');
-    images = images.treeMat;
+    images = load('thumbnails.mat');
+    images = images.imgMat;
   end
   if ~exist('fIDX','var')
       fIDX = 1000;
   end
-  if ~exist('whichTask','var')
-    whichTask = 'both';
-  end
 
-  switch whichTask
-  case 'north'
-    images = images(1:25,:,:,:);
-  case 'south'
-    images = images(26:50,:,:,:);
-  end
 
 
 

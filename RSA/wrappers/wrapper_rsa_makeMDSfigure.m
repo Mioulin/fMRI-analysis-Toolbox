@@ -1,5 +1,5 @@
 function wrapper_rsa_makeMDSfigure()
-  %%
+  %% wrapper_rsa_makeMDSfigure()
   %
   % projects group-level ROI RDM into 2D and
   % displays as figure.

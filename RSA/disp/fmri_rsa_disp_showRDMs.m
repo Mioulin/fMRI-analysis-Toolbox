@@ -1,5 +1,5 @@
 function fmri_rsa_disp_showRDMs(rdmSet,nX,nY,spTitles,fIDX)
-  %% fmri_rsa_disp_showRDMs
+  %% fmri_rsa_disp_showRDMs(rdmSet,nX,nY,spTitles,fIDX)
   %
   % plots several RDMs as subplots
   % useful for quick and dirty comparison

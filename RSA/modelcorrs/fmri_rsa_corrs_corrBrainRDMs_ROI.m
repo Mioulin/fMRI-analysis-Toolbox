@@ -1,5 +1,5 @@
 function fmri_rsa_corrs_corrBrainRDMs_ROI(maskName,modelRDMs)
-  %% fmri_rsa_corrs_corrBrainRDMs()
+  %% fmri_rsa_corrs_corrBrainRDMs_ROI(maskName,modelRDMs)
   %
   % correlates model RDMs with brain RDM (ROI approach)
   % if desired, individual model RDMs are orthogonalised

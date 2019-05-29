@@ -1,5 +1,5 @@
 function wrapper_rsa_sigtest_roi()
-  %%
+  %% wrapper_rsa_sigtest_roi()
   %
   % computes ROI-based RDMs
   % using my own pipeline, and tdt for comparison

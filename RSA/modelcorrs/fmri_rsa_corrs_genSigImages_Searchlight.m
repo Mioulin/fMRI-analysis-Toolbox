@@ -1,5 +1,5 @@
 function fmri_rsa_corrs_genSigImages_Searchlight(p_thresh)
-  %% fmri_rsa_corrs_genSigImages()
+  %% fmri_rsa_corrs_genSigImages_Searchlight(p_thresh)
   %
   % exports group-level z-, p- and thresholded tau-maps as nifti files
   % with one 3D file per model

@@ -1,5 +1,5 @@
 function fmri_rsa_disp_showRDM(rdm,fIDX,whichQuadrant,labelType,images)
-%% fmri_rsa_disp_showRDM(rdm,images)
+%% fmri_rsa_disp_showRDM(rdm,fIDX,whichQuadrant,labelType,images)
 %
 % Timo Flesch, 2018,
 % Human Information Processing Lab,
@@ -21,7 +21,7 @@ function fmri_rsa_disp_showRDM(rdm,fIDX,whichQuadrant,labelType,images)
   switch labelType
   case 'imgs'
     if ~exist('images','var')
-      images = load('treesForRDM.mat');
+      images = load('rdmLabels.mat');
       labels = images.imStruct;
     end
   case 'text'
@@ -39,14 +39,14 @@ function fmri_rsa_disp_showRDM(rdm,fIDX,whichQuadrant,labelType,images)
 
   switch whichQuadrant
   case 'all'
-    quadIdces = [1:50;1:50];
-    imIdces = [1:50];
+    quadIdces = [1:length(rdm);1:length(rdm)];
+    imIdces = [1:length(rdm)];
   case 'taskNorth'
-    quadIdces = [1:25;1:25];
-    imIdces = [26:50];
+    quadIdces = [1:floor(length(rdm)/2);1:floor(length(rdm)/2)];
+    imIdces = [ceil(length(rdm)/2)+1:length(rdm)];
   case 'taskSouth'
-    quadIdces = [26:50;26:50];
-    imIdces = [1:25];
+    quadIdces = [ceil(length(rdm)/2)+1:length(rdm);26:length(rdm)];
+    imIdces = [1:floor(length(rdm)/2)];
   end
   numEl = length(imIdces);
 

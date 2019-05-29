@@ -1,9 +1,12 @@
 function fmri_rsa_disp_rdmReplicability(scores)
 %% fmri_rsa_disp_rdmReplicability(scores)
 %
-% calculates leave one subject out rdm correlations (spearman)
+% displays rdm replicability results (brain)
 %
-% Timo Flesch, 2019
+% Timo Flesch, 2019,
+% Human Information Processing Lab,
+% Experimental Psychology Department
+% University of Oxford
 
   if ~exist('scores','var')
     scores = fmri_rsa_helper_rdmReplicability();

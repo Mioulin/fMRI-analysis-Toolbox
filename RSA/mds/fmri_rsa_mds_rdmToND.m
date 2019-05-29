@@ -1,5 +1,5 @@
 function xy = fmri_rsa_mds_rdmToND(rdm,dims,criterion)
-%% fmri_rsa_mds_rdmToND(rdm)
+%% xy = fmri_rsa_mds_rdmToND(rdm,dims,criterion)
 %
 % projects RDM into n-dimensional space
 % preprocesses RDM to ensure that it's symmetric, real and

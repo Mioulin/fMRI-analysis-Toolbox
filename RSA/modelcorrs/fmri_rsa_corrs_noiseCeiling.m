@@ -1,5 +1,5 @@
 function [ub,lb] = fmri_rsa_corrs_noiseCeiling(maskName)
-  %% fmri_rsa_corrs_noiseCeiling()
+  %% [ub,lb] = fmri_rsa_corrs_noiseCeiling(maskName)
   %
   % adapted from ceilingAvgRDMCorr in rsatoolbox
   %

@@ -38,7 +38,7 @@ Various tools to perform analyses of fMRI data.
  - perform 1st level contrasts (of as many contrast as you wish, in one go)
  - perform 2nd level inference, generates group-level T-Map.
  - do above in leave-one-subject-out manner, for functional ROIs  
- 
+
 
  Again, all parameters adjusted set in one file, `fmri_glm_setParams()`
 
@@ -59,6 +59,44 @@ Various tools to perform analyses of fMRI data.
 
 ## RSA
 Representational Similarity Analysis. Mostly custom code which operates directly on matlab matrices.
+
+**Features**
+- ROI-based RSA: Specify a few masks (Nifti volumes) and let the toolbox do the rest
+- Searchlight RSA: Spherical Searchlight for whole-brain analyses
+
+- different distance measures supported
+  - Euclidean distance
+  - Correlation distance
+  - Cosine distance
+  - Mahalanobis distance
+  - Crossvalidated Mahalanobis distance (leave-one-run-out)
+- whitening can be combined with any distance measure, as residuals for the covariance matrix are computed on the fly
+- Large between-run-dissimilarity matrices also supported (within run comparison automatically set to NaN)
+- batch correlation with model RDMs
+  - optional recursive Gram-Schmid Orthogonalisation
+  - different coefficients supported
+    - spearman's rho
+    - Kendall's taua
+    - Pearson's r
+    - bonus: simple linear regression (of models onto brain)     
+- batch computation of RDMs for set of ROIs
+- computation of the lower and upper bounds of the noise ceiling
+  - using Spearman's rank correlation
+  - using Pearson correlation
+  - using Kendall's taua (only approximate for LB)
+- Multi-Dimensional Scaling (wrapper), T-SNE (wrapper)
+- 2nd level inference
+  - Signed-Rank test
+  - T-test (with optional Inverse Hyperbolic tangent of coefficients)
+  - export as thresholded (1-p)-images and t-images (Nifit format)
+
+- Visualisation of single-subject/group average RDMs
+- Visualisation of MDS/T-SNE projections
+- Visualisation of whole-brain maps
+- within ROI bar-graphs of correlation coefficients (with optional noise ceiling)
+
+
+**Table of Contents**
 
 ```bash
 .

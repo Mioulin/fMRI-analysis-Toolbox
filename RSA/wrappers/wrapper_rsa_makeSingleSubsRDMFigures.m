@@ -2,6 +2,12 @@ function wrapper_rsa_makeSingleSubsRDMFigures()
 %% wrapper_rsa_makeSingleSubsRDMFigure()
 %
 % generates subplots of individual RDMs for selected ROI and method
+%
+% Timo Flesch, 2018,
+% Human Information Processing Lab,
+% Experimental Psychology Department
+% University of Oxford
+%
 
 params = fmri_rsa_compute_setParams();
 

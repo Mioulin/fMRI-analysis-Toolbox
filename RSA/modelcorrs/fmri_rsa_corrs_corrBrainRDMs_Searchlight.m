@@ -1,5 +1,5 @@
 function fmri_rsa_corrs_corrBrainRDMs_Searchlight(modelRDMs)
-  %% fmri_rsa_corrs_corrBrainRDMs_Searchlight()
+  %% fmri_rsa_corrs_corrBrainRDMs_Searchlight(modelRDMs)
   %
   % correlates model RDMs with brain RDMs (searchlight approach)
   % if desired, individual model RDMs are orthogonalised

@@ -1,5 +1,5 @@
 function wrapper_rsa_noiseCeiling_roi()
-  %%
+  %% wrapper_rsa_noiseCeiling_roi()
   %
   % computes ROI-based RDMs
   % using my own pipeline, and tdt for comparison
@@ -7,6 +7,8 @@ function wrapper_rsa_noiseCeiling_roi()
   % Timo Flesch, 2019
   % Human Information Processing Lab
   % University of Oxford
+
+  
   roiMasks = {'r_mask_wfu_BA17', ...
   'r_mask_wfu_BA18','r_mask_wfu_BA19'};
 

@@ -1,5 +1,5 @@
 function params = fmri_rsa_compute_setParams()
-  %% RSA_COMPUTE_SETPARAMS()
+  %% fmri_rsa_compute_setParams()
   %
   % sets parameters for rdm computation
   %

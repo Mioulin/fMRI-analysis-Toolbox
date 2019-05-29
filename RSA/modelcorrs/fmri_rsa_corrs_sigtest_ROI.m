@@ -1,5 +1,5 @@
 function stats = fmri_rsa_corrs_sigtest_ROI(maskName)
-  %% fmri_rsa_corrs_sigtest()
+  %% stats = fmri_rsa_corrs_sigtest_ROI(maskName)
   %
   % performs statistical inference on
   % correlation coefficients within ROIs
