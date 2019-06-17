@@ -35,10 +35,15 @@ function params = fmri_preproc_setParams()
 
   %% Numbers
   % numbers
-  params.num.subjects   = 14; % number of subjects (o rly)
-  params.num.runs       =  6; % number of runs
-  params.num.conditions =  8; % number of conditions
+  params.num.subjects   = 25; % number of subjects (o rly)
+  params.num.runs       =  5; % number of runs
+  params.num.conditions =  4; % number of conditions
   params.num.motionregs =  6; % number of motion regressors
+
+  params.num.badsSubjects = [4];
+  params.num.goodSubjects = 1:params.num.subjects;
+  params.num.goodSubjects(params.num.badsSubjects) = [];
+
 
   %% Miscellaneous
   % EPI image options
