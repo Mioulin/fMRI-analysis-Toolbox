@@ -4,6 +4,7 @@ Various tools to perform analyses of fMRI data.
 **Requirements**
 - SPM
 - rsatoolbox
+- the decoding toolbox
 
 
 
@@ -154,7 +155,20 @@ Representational Similarity Analysis. Mostly custom code which operates directly
     └── wrapper_rsa_sigtest_roi.m
 
 ```
+## MVPA
+mostly code skeletons to interface "The Decoding Toolbox"  
 
+```bash
+.
+├── fmri_tdt_compute2ndlevelContrast.m
+├── fmri_tdt_normalisation.m
+├── fmri_tdt_runSearchlightMVPA.m
+├── fmri_tdt_setParamsMVPA.m
+├── fmri_tdt_setParamsNormalisation.m
+├── fmri_tdt_setParamsSmoothing.m
+└── fmri_tdt_smooth.m
+
+```
 ## IO  
 helper functions to convert image files to MATLAB matrices and vice versa
 
