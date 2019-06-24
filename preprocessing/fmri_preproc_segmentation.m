@@ -10,25 +10,25 @@ function fmri_preproc_segmentation()
   params = fmri_preproc_setParams();
 
   disp(['Tissue segmentation of structural']);
-  for subID = 1:params.num.subjects
-    subjectDirName = fmri_helper_set_fileName(subID);
+  for ii = 1:length(params.num.goodSubjects)
+    subID = params.num.goodSubjects(ii);
+    subjectDirName = set_fileName(subID);
     disp(['... job specification for subject : ', num2str(subID)]);
 
-    % cd so that .mat and .nii files are written in structural dir
     cd([params.dir.imDir subjectDirName '/' params.dir.structSubDir]);
 
     % collect co-registered  structural image
     structDir = [params.dir.imDir subjectDirName '/' params.dir.structSubDir];
-    structFile   = spm_select('List', params.dir.structSubDir, params.regex.structCoregImages);
-
+    structFile   = spm_select('List', structDir, params.regex.structCoregImages);
 
     matlabbatch{1}.spm.spatial.preproc = params.seg; % channel,tissue,warp
-    matlabbatch{1}.spm.spatial.preproc.channel.vols = structFile;
+    matlabbatch{1}.spm.spatial.preproc.channel.vols = {structFile};
 
     % save and run job
     save('batchFile_segmentStruct.mat','matlabbatch');
 
     disp(['... Tissue segmentation for subject ' num2str(subID)])
     spm_jobman('run','batchFile_segmentStruct.mat');
+
     clear matlabbatch
   end

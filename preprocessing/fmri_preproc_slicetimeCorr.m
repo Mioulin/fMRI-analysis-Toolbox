@@ -10,29 +10,33 @@ function fmri_preproc_slicetimeCorr()
   params = fmri_preproc_setParams();
 
   disp(['Slice Time Correction of EPIs']);
-  for subID = 1:params.num.subjects
-    subjectDirName = fmri_helper_set_fileName(subID);
+  for ii = 1:length(params.num.goodSubjects)
+    subID = params.num.goodSubjects(ii);
+    subjectDirName = set_fileName(subID);
 
     disp(['... job specification for subject : ', num2str(subID)]);
 
-    % cd so that .mat and .ps files are written in functional dir
-    cd([params.dir.imDir subjectDirName '/' params.dir.epiSubDir]);
+
+    cd([params.dir.imDir subjectDirName '/']);
 
     % collect all EPIs (of all sessions)
-    for runID = 1:params.num.runs
-        funcDir = [params.dir.imDir subjectDirName '/' params.dir.epiSubDir  params.dir.runSubDir num2str(runID) '/'];
+    runIDs = params.num.runIDs;    
+    for jj = 1:params.num.runs
+        runID = runIDs(jj);
+        funcDir = [params.dir.imDir subjectDirName '/' params.dir.runSubDir num2str(runID,'%04d') '/'];
         % select realigned and unwarped EPI images
         fileNames   = spm_select('List', funcDir,['^' params.reuw.unwarpresl.prefix  'f.*\.nii$']);
         runFiles = cellstr([repmat(funcDir,size(fileNames,1),1) fileNames]);
 
-        matlabbatch{1}.spm.temporal.st.scans(runID).scans = runFiles;
+        matlabbatch{1}.spm.temporal.st.scans{jj} = runFiles;
         fileNames = [];
         runFiles  = [];
     end
-
     % populate batch fields with options from params file:
-    matlabbatch{1}.spm.temporal.st = params.st;
-
+    fns = fieldnames(params.st);
+    for jj = 1:length(fns)
+      matlabbatch{1}.spm.temporal.st.(fns{jj}) = params.st.(fns{jj});
+    end
     % save job description
     save('batchFile_stEPI.mat','matlabbatch');
 

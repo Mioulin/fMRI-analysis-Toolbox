@@ -10,24 +10,27 @@ function fmri_preproc_realignUnwarp()
   params = fmri_preproc_setParams();
 
   disp(['Realignment and Unwarping of functional EPIs']);
-  for subID = 1:params.num.subjects
-    subjectDirName = fmri_helper_set_fileName(subID);
+  for ii = 1:length(params.num.goodSubjects)
+    subID = params.num.goodSubjects(ii);
+    subjectDirName = set_fileName(subID);
 
     disp(['... job specification for subject : ', num2str(subID)]);
 
-    % cd so that .mat and .ps files are written in functional dir
-    cd([params.dir.imDir subjectDirName '/' params.dir.epiSubDir]);
+
+    cd([params.dir.imDir subjectDirName '/']);
 
     allEPIfiles = [];
-    % collect all EPIs (of all sessions)
-    for runID = 1:params.num.runs
-      funcDir = [params.dir.imDir subjectDirName '/' params.dir.epiSubDir  params.dir.runSubDir num2str(runID) '/'];
+    % collect all EPIs (of all sessions)    
+    runIDs = params.num.runIDs;
+    for jj = 1:params.num.runs
+        runID = runIDs(jj);
+        funcDir = [params.dir.imDir subjectDirName '/' params.dir.runSubDir num2str(runID,'%04d') '/'];
         % select raw EPI images
         fileNames   = spm_select('List', funcDir,'^f.*\.nii$');
         runFiles = cellstr([repmat(funcDir,size(fileNames,1),1) fileNames]);
 
-        matlabbatch{1}.spm.spatial.realignunwarp.data(runID).scans = runFiles;
-        matlabbatch{1}.spm.spatial.realignunwarp.data(runID).pmscan = '';
+        matlabbatch{1}.spm.spatial.realignunwarp.data(jj).scans = runFiles;
+        matlabbatch{1}.spm.spatial.realignunwarp.data(jj).pmscan = '';
         fileNames = [];
         runFiles  = [];
     end

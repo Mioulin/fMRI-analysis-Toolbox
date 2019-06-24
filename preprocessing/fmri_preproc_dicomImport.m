@@ -33,9 +33,10 @@ function fmri_preproc_dicomImport()
       runFiles    =                      [];
     end
 
+
     % collect raw structural image
     structDir = [params.dir.imDir subjectDirName '/' params.dir.structSubDir];
-%     structDir = [params.dir.imDir subjectDirName '/'];
+    % structDir = [params.dir.imDir subjectDirName '/'];
     clear fileNames;
     fileNames   = spm_select('List', params.dir.structSubDir, '.*.dcm$');
     structFiles    = cellstr([repmat(structDir,size(fileNames,1),1) fileNames]);

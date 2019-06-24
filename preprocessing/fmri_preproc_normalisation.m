@@ -7,20 +7,23 @@ function fmri_preproc_normalisation()
   % Human Information Processing Lab
   % University of Oxford
 
+
   params = fmri_preproc_setParams();
 
   disp(['Normalising EPIs and Structural from native to mni space']);
-  for subID = 1:params.num.subjects
-    subjectDirName = fmri_helper_set_fileName(subID);
+  for ii = 1:length(params.num.goodSubjects)
+    subID = params.num.goodSubjects(ii);
+    subjectDirName = set_fileName(subID);
     disp(['... job specification for subject : ', num2str(subID)]);
 
     % cd so that .mat and .ps files are written in functional dir
-    cd([params.dir.imDir subjectDirName '/' params.dir.epiSubDir]);
+    cd([params.dir.imDir subjectDirName '/']);
 
     allEPIfiles = [];
-    % collect all EPIs (of all sessions)
-    for runID = 1:params.num.runs
-        funcDir = [params.dir.imDir subjectDirName '/' params.dir.epiSubDir  params.dir.runSubDir num2str(runID) '/'];
+    runIDs = params.num.runIDs;
+    for jj = 1:params.num.runs
+        runID = runIDs(jj);
+        funcDir = [params.dir.imDir subjectDirName '/' params.dir.runSubDir num2str(runID,'%04d') '/'];
         % select unwarped and st-corrected images (with which structural is coregistered)
         fileNames   = spm_select('List', funcDir, params.regex.epiCoregImages);
         runFiles = cellstr([repmat(funcDir,size(fileNames,1),1) fileNames]);
@@ -32,7 +35,6 @@ function fmri_preproc_normalisation()
     % collect co-registered structural image
     structDir = [params.dir.imDir subjectDirName '/' params.dir.structSubDir];
     structFile   = spm_select('List', params.dir.structSubDir, params.regex.structCoregImages);
-
 
     matlabbatch{1}.spm.spatial.normalise.estwrite.subj.vol = {[structDir structFile]};
     matlabbatch{1}.spm.spatial.normalise.estwrite.subj.resample = allEPIfiles;

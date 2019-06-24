@@ -10,19 +10,20 @@ function fmri_preproc_coregistration()
   params = fmri_preproc_setParams();
 
   disp(['Coregistration of structural with mean functional of first run']);
-  for subID = 1:params.num.subjects
+  for ii = 1:length(params.num.goodSubjects)
+    subID = params.num.goodSubjects(ii);
     subjectDirName = fmri_helper_set_fileName(subID);
 
     disp(['... job specification for subject : ', num2str(subID)]);
 
-    % cd so that .mat and .ps files are written in functional dir
-    cd([params.dir.imDir subjectDirName '/' params.dir.epiSubDir]);
+
+    cd([params.dir.imDir subjectDirName '/']);
 
     % populate batch fields with options from params file:
-    matlabbatch{1}.spm.spatial.coreg.estwrite = params.coreg.estimate;
+    matlabbatch{1}.spm.spatial.coreg.estwrite.eoptions = params.coreg.estimate;
 
     % reference image: mean functional from first run
-    funcDir = [params.dir.imDir subjectDirName '/' params.dir.epiSubDir  params.dir.runSubDir num2str(1) '/'];
+    funcDir = [params.dir.imDir subjectDirName '/' params.dir.runSubDir num2str(runIDs(1),'%04d') '/'];
     meanFile   = spm_select('List', funcDir, ['mean' params.reuw.unwarpresl.prefix 'f.*\.nii$']);
     matlabbatch{1}.spm.spatial.coreg.estwrite.ref = {[funcDir meanFile]};
 

@@ -10,19 +10,22 @@ function fmri_preproc_smooth()
   params = fmri_preproc_setParams();
 
   disp(['Smoothing normalised EPIs']);
-  for subID = 1:params.num.subjects
-    subjectDirName = fmri_helper_set_fileName(subID);
+  for ii = 1:length(params.num.goodSubjects)
+    subID = params.num.goodSubjects(ii);
+    subjectDirName = set_fileName(subID);
+    runIDs = params.num.runIDs;
     disp(['... job specification for subject : ', num2str(subID)]);
 
     % cd so that .mat and .ps files are written in functional dir
-    cd([params.dir.imDir subjectDirName '/' params.dir.epiSubDir]);
+    cd([params.dir.imDir subjectDirName '/']);
 
     allEPIfiles = [];
     % collect all EPIs (of all sessions)
-    for runID = 1:params.num.runs
-        funcDir = [params.dir.imDir subjectDirName '/' params.dir.epiSubDir  params.dir.runSubDir num2str(runID) '/'];
+    for jj = 1:params.num.runs
+        runID = runIDs(jj);
+        funcDir = [params.dir.imDir subjectDirName '/' params.dir.runSubDir num2str(runID,'%04d') '/'];
         % select unwarped and st-corrected images (with which structural is coregistered)
-        fileNames   = spm_select('List', funcDir, [params.norm.write.prefix params.regex.epiCoregImages]); % wauf
+        fileNames   = spm_select('List', funcDir, [params.regex.epiNormImages]); % wauf
         runFiles = cellstr([repmat(funcDir,size(fileNames,1),1) fileNames]);
         allEPIfiles = [allEPIfiles; runFiles];  % add files of all sessions
         fileNames = [];
