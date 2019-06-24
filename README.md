@@ -1,4 +1,4 @@
-# fmri_utils
+# fMRI Toolbox
 Various tools to perform analyses of fMRI data.
 
 **Requirements**
